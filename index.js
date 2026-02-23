@@ -48,6 +48,7 @@ app.post('/api/reminders', (req, res) => {
         datetime: req.body.datetime,
         status: req.body.status || 'scheduled',
         enabled: req.body.enabled !== undefined ? req.body.enabled : true,
+        ringtone: req.body.ringtone || 'classic',
         createdAt: new Date().toISOString()
     };
     reminders.push(newReminder);
@@ -71,6 +72,7 @@ app.put('/api/reminders/:id', (req, res) => {
         ...(req.body.datetime !== undefined && { datetime: req.body.datetime }),
         ...(req.body.status !== undefined && { status: req.body.status }),
         ...(req.body.enabled !== undefined && { enabled: req.body.enabled }),
+        ...(req.body.ringtone !== undefined && { ringtone: req.body.ringtone }),
     };
 
     reminders[index] = updated;

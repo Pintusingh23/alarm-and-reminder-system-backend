@@ -20,6 +20,10 @@ const reminderSchema = new mongoose.Schema({
     enabled: {
         type: Boolean,
         default: true
+    },
+    ringtone: {
+        type: String,
+        default: 'classic'
     }
 }, { timestamps: true });
 
